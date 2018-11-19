@@ -27,4 +27,5 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 //ログイン認証付きのルーティング
 Route::group(['middleware' => ['auth']], function (){
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    Route::resource('microposts', 'MicropostsController', ['only' => ['store', 'destroy']]);
 });
